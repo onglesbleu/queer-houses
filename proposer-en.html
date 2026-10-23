@@ -15,8 +15,8 @@
       <a href="annonces-en.html">Browse listings</a>
       <span class="lang-switcher">
         <a href="index.html">FR</a> ·
-        <a href="proposer-en.html" class="active">EN</a> ·
-        <a href="proposer-nl.html">NL</a>
+        <a href="proposer-en.html">EN</a> ·
+        <a href="proposer-nl.html" class="active">NL</a>
       </span>
     </nav>
   </header>
@@ -25,9 +25,9 @@
     <h1>List a flatshare</h1>
     <p>Whether you have a place to share or you're looking for future flatmates, fill in this form. Your listing will be visible on the "Browse listings" page.</p>
 
-    <form action="mailto:mercilacolere@proton.me" method="post" class="form">
+    <form action="mailto:mercilacolere@proton.me" method="post" class="form" onsubmit="return formatEmail(this)">
       <div class="form-group">
-        <label for="type">Are you offering or looking?</label>
+        <label for="type">Are you offering or looking ?</label>
         <select id="type" name="type" required>
           <option value="" disabled selected>Select…</option>
           <option value="proposer">I'm offering a place / a room</option>
@@ -37,19 +37,13 @@
 
       <div class="form-group">
         <label for="logement">Type of housing</label>
-        <select id="logement" name="logement" required>
-          <option value="" disabled selected>Select…</option>
-          <option value="appartement">Apartment</option>
-          <option value="maison">House</option>
-          <option value="chambre">Room</option>
-          <option value="studio">Studio</option>
-          <option value="autre">Other</option>
-        </select>
+        <input type="text" id="logement" name="logement" placeholder="House, apartment, room, etc." required>
       </div>
 
       <div class="form-group">
         <label for="quartier">Neighbourhood / Municipality</label>
-        <input type="text" id="quartier" name="quartier" placeholder="e.g. Ixelles, Centre, Schaerbeek…" required>
+        <input type="text" id="quartier" name="quartier" placeholder="Ixelles, Centre, Schaerbeek…" required>
+        <small>Tip: do not indicate the street and number of the shared accommodation. You can provide this information to interested parties when they contact you.</small>
       </div>
 
       <div class="form-group">
@@ -59,7 +53,7 @@
 
       <div class="form-group">
         <label for="dispo">Availability</label>
-        <input type="text" id="dispo" name="dispo" placeholder="e.g. from November, flexible, January 2027…" required>
+        <input type="text" id="dispo" name="dispo" placeholder="e.g. from november, flexible, january 2027, etc." required>
       </div>
 
       <div class="form-group">
@@ -75,21 +69,38 @@
       <div class="form-group">
         <label for="contact">Contact details</label>
         <input type="text" id="contact" name="contact" required>
-        <small>This contact will be visible to other people browsing the listing.</small>
+        <small>For your security, we recommend that you provide a dedicated contact method (e.g., Signal number, Proton email) rather than your primary contact information. This contact will be publicly visible on the listing.</small>
       </div>
-      
-      <div class="form-group">
-        <label for="photos">Photos (optional, max 3 per listing)</label>
+
+      <!--<div class="form-group">
+        <label for="photos">Photos (facultatif, max 3 par annonce)</label>
         <input type="file" id="photos" name="photos" accept="image/*" multiple>
-        <small>Accepted formats : JPG, PNG, WebP. Max 3 Mo per picture.</small>
-      </div>
+        <small>Formats acceptés : JPG, PNG, WebP. Max 3 Mo par photo.</small>
+      </div>-->
+
+      <section>
+        <p>To avoid going through a third party, the form will open in your email application when you click on "send the announcement". If your browser displays a security warning, that’s normal: the form simply opens your email application. Your data does not pass through an intermediary server. And if the form does not open in your email application, you can also write to us directly at <b>mercilacolere@proton.me</b> with the same information.</p>
+      </section>
 
       <button type="submit">Submit listing</button>
     </form>
+
+<script>
+function formatEmail(form) {
+  const data = new FormData(form);
+  let body = "";
+  data.forEach(function(value, key) {
+    body += key + " : " + value + "\n";
+  });
+  window.location.href = "mailto:mercilacolere@proton.me?body=" + encodeURIComponent(body);
+  return false;
+}
+</script>
+    
   </main>
 
   <footer>
-    <p>Report an issue: <a href="mailto:mercilacolere@proton.me">mercilacolere@proton.me</a></p>
+    <p>Report an issue : <a href="mailto:mercilacolere@proton.me">mercilacolere@proton.me</a></p>
   </footer>
 </body>
 </html>
