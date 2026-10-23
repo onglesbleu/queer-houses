@@ -25,9 +25,9 @@
     <h1>Bied een woning aan</h1>
     <p>Of je nu een woning hebt om te delen of op zoek bent naar toekomstige huisgenoten, vul dit formulier in. Je advertentie zal zichtbaar zijn op de pagina "Bekijk advertenties".</p>
 
-    <form action="mailto:mercilacolere@proton.me" method="post" class="form">
+    <form action="mailto:mercilacolere@proton.me" method="post" class="form" onsubmit="return formatEmail(this)">
       <div class="form-group">
-        <label for="type">Bied je aan of zoek je?</label>
+        <label for="type">Bied je aan of zoek je ?</label>
         <select id="type" name="type" required>
           <option value="" disabled selected>Kies…</option>
           <option value="proposer">Ik bied een woning / een plek aan</option>
@@ -37,19 +37,13 @@
 
       <div class="form-group">
         <label for="logement">Type woning</label>
-        <select id="logement" name="logement" required>
-          <option value="" disabled selected>Kies…</option>
-          <option value="appartement">Appartement</option>
-          <option value="maison">Huis</option>
-          <option value="chambre">Slaapkamer</option>
-          <option value="studio">Studio</option>
-          <option value="autre">Anders</option>
-        </select>
+        <input type="text" id="logement" name="logement" placeholder="Huis, appartement, kamer, etc." required>
       </div>
 
       <div class="form-group">
         <label for="quartier">Wijk / Gemeente</label>
-        <input type="text" id="quartier" name="quartier" placeholder="bijv. Ixelles, Centrum, Schaerbeek…" required>
+        <input type="text" id="quartier" name="quartier" placeholder="Ixelles, Centre, Schaerbeek…" required>
+        <small style="color:red;">Il est conseillé de ne pas indiquer la rue et le numéro de la colocation. Vous pourrez donner ces informations avec les personnes intéressées lorsqu'elles vous contacteront.</small>
       </div>
 
       <div class="form-group">
@@ -59,7 +53,7 @@
 
       <div class="form-group">
         <label for="dispo">Beschikbaarheid</label>
-        <input type="text" id="dispo" name="dispo" placeholder="bijv. vanaf november, flexibel, januari 2027…" required>
+        <input type="text" id="dispo" name="dispo" placeholder="Vanaf november, flexibel, januari 2027, etc." required>
       </div>
 
       <div class="form-group">
@@ -75,21 +69,38 @@
       <div class="form-group">
         <label for="contact">Contactgegevens</label>
         <input type="text" id="contact" name="contact" required>
-        <small>Dit contact zal zichtbaar zijn voor andere mensen die de advertentie bekijken.</small>
+        <small style="color:red;">Pour votre sécurité, nous vous recommandons de fournir un moyen de contact dédié (ex. : numéro Signal, email Proton) plutôt que vos coordonnées principales. Ce contact sera visible publiquement sur l'annonce.</small>
       </div>
 
-      <div class="form-group">
-        <label for="photos">Foto's (optioneel, max 3 per zoekertje)</label>
+      <!--<div class="form-group">
+        <label for="photos">Photos (facultatif, max 3 par annonce)</label>
         <input type="file" id="photos" name="photos" accept="image/*" multiple>
-        <small>Ondersteunde indelingen : JPG, PNG, WebP. Max 3 Mo per foto.</small>
-      </div>
+        <small>Formats acceptés : JPG, PNG, WebP. Max 3 Mo par photo.</small>
+      </div>-->
+
+      <section>
+        <p style="color:red;">Pour éviter de passer par un tiers, le formulaire va s'ouvrir dans votre application mail lorsque vous cliquerez sur "envoyer l'annonce". Si votre navigateur affiche un avertissement de sécurité, c'est normal : le formulaire ouvre simplement votre application mail. Vos données ne transitent pas par un serveur intermédiaire. Et si le formulaire ne s'ouvre pas dans votre application mail, vous pouvez aussi nous écrire directement à mercilacolere@proton.me avec les mêmes informations.</p>
+      </section>
 
       <button type="submit">Advertentie versturen</button>
     </form>
+
+<script>
+function formatEmail(form) {
+  const data = new FormData(form);
+  let body = "";
+  data.forEach(function(value, key) {
+    body += key + " : " + value + "\n";
+  });
+  window.location.href = "mailto:mercilacolere@proton.me?body=" + encodeURIComponent(body);
+  return false;
+}
+</script>
+    
   </main>
 
   <footer>
-    <p>Meld een probleem: <a href="mailto:mercilacolere@proton.me">mercilacolere@proton.me</a></p>
+    <p>Meld een probleem : <a href="mailto:mercilacolere@proton.me">mercilacolere@proton.me</a></p>
   </footer>
 </body>
 </html>
