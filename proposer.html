@@ -91,6 +91,23 @@
 
       <button type="submit">Envoyer l'annonce</button>
     </form>
+
+    <form action="mailto:mercilacolere@proton.me" method="POST" class="form" onsubmit="return formatEmail(this)">
+  <!-- tes champs -->
+</form>
+
+<script>
+function formatEmail(form) {
+  const data = new FormData(form);
+  let body = "";
+  data.forEach(function(value, key) {
+    body += key + " : " + value + "\n";
+  });
+  window.location.href = "mailto:mercilacolere@proton.me?body=" + encodeURIComponent(body);
+  return false;
+}
+</script>
+    
   </main>
 
   <footer>
