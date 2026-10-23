@@ -25,7 +25,7 @@
     <h1>Proposer une colocation</h1>
     <p>Que tu aies un logement à partager ou que tu cherches tes futur·es colocataires, remplis ce formulaire. Ton annonce sera visible sur la page « Voir les annonces ».</p>
 
-    <form action="mailto:mercilacolere@proton.me" method="post" class="form">
+    <form action="mailto:mercilacolere@proton.me" method="post" class="form" onsubmit="return formatEmail(this)">
       <div class="form-group">
         <label for="type">Tu proposes ou tu cherches ?</label>
         <select id="type" name="type" required>
@@ -84,10 +84,6 @@
 
       <button type="submit">Envoyer l'annonce</button>
     </form>
-
-    <form action="mailto:mercilacolere@proton.me" method="POST" class="form" onsubmit="return formatEmail(this)">
-  <!-- tes champs -->
-</form>
 
 <script>
 function formatEmail(form) {
