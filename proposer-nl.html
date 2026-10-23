@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Bied een woning aan — Queers houses</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index-nl.html">Home</a>
+      <a href="proposer-nl.html" class="active">Bied een woning aan</a>
+      <a href="annonces-nl.html">Bekijk advertenties</a>
+      <span class="lang-switcher">
+        <a href="index.html">FR</a> ·
+        <a href="proposer-en.html">EN</a> ·
+        <a href="proposer-nl.html" class="active">NL</a>
+      </span>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Bied een woning aan</h1>
+    <p>Of je nu een woning hebt om te delen of op zoek bent naar toekomstige huisgenoten, vul dit formulier in. Je advertentie zal zichtbaar zijn op de pagina "Bekijk advertenties".</p>
+
+    <form action="https://formspree.io/f/xjygnjvp" method="POST" class="form">
+      <div class="form-group">
+        <label for="type">Bied je aan of zoek je?</label>
+        <select id="type" name="type" required>
+          <option value="" disabled selected>Kies…</option>
+          <option value="proposer">Ik bied een woning / een plek aan</option>
+          <option value="chercher">Ik zoek een woning / huisgenoten</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="logement">Type woning</label>
+        <select id="logement" name="logement" required>
+          <option value="" disabled selected>Kies…</option>
+          <option value="appartement">Appartement</option>
+          <option value="maison">Huis</option>
+          <option value="chambre">Slaapkamer</option>
+          <option value="studio">Studio</option>
+          <option value="autre">Anders</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="quartier">Wijk / Gemeente</label>
+        <input type="text" id="quartier" name="quartier" placeholder="bijv. Ixelles, Centrum, Schaerbeek…" required>
+      </div>
+
+      <div class="form-group">
+        <label for="places">Aantal beschikbare plekken (als je aanbiedt)</label>
+        <input type="number" id="places" name="places" min="1" max="10">
+      </div>
+
+      <div class="form-group">
+        <label for="dispo">Beschikbaarheid</label>
+        <input type="text" id="dispo" name="dispo" placeholder="bijv. vanaf november, flexibel, januari 2027…" required>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Beschrijf je zoekopdracht of je woning</label>
+        <textarea id="description" name="description" rows="5" placeholder="Beschrijving van de plek, prijs, waarden, sfeer, etc." required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="pronoms">Jouw voornaamwoorden</label>
+        <input type="text" id="pronoms" name="pronoms" required>
+      </div>
+
+      <div class="form-group">
+        <label for="contact">Contactgegevens</label>
+        <input type="text" id="contact" name="contact" required>
+        <small>Dit contact zal zichtbaar zijn voor andere mensen die de advertentie bekijken.</small>
+      </div>
+
+      <button type="submit">Advertentie versturen</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>Meld een probleem: <a href="mailto:mercilacolere@proton.me">mercilacolere@proton.me</a></p>
+  </footer>
+</body>
+</html>
