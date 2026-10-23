@@ -302,3 +302,20 @@ footer a:hover {
 .lang-switcher a.active {
   color: #7c3aed;
 }
+
+/* ===== Photos dans les annonces ===== */
+.annonce-photos {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+}
+
+.annonce-photos img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
