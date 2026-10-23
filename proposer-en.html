@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>List a flatshare — Queers houses</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index-en.html">Home</a>
+      <a href="proposer-en.html" class="active">List a flatshare</a>
+      <a href="annonces-en.html">Browse listings</a>
+      <span class="lang-switcher">
+        <a href="index.html">FR</a> ·
+        <a href="proposer-en.html" class="active">EN</a> ·
+        <a href="proposer-nl.html">NL</a>
+      </span>
+    </nav>
+  </header>
+
+  <main>
+    <h1>List a flatshare</h1>
+    <p>Whether you have a place to share or you're looking for future flatmates, fill in this form. Your listing will be visible on the "Browse listings" page.</p>
+
+    <form action="https://formspree.io/f/xjygnjvp" method="POST" class="form">
+      <div class="form-group">
+        <label for="type">Are you offering or looking?</label>
+        <select id="type" name="type" required>
+          <option value="" disabled selected>Select…</option>
+          <option value="proposer">I'm offering a place / a room</option>
+          <option value="chercher">I'm looking for a place / flatmates</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="logement">Type of housing</label>
+        <select id="logement" name="logement" required>
+          <option value="" disabled selected>Select…</option>
+          <option value="appartement">Apartment</option>
+          <option value="maison">House</option>
+          <option value="chambre">Room</option>
+          <option value="studio">Studio</option>
+          <option value="autre">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="quartier">Neighbourhood / Municipality</label>
+        <input type="text" id="quartier" name="quartier" placeholder="e.g. Ixelles, Centre, Schaerbeek…" required>
+      </div>
+
+      <div class="form-group">
+        <label for="places">Number of spots available (if offering)</label>
+        <input type="number" id="places" name="places" min="1" max="10">
+      </div>
+
+      <div class="form-group">
+        <label for="dispo">Availability</label>
+        <input type="text" id="dispo" name="dispo" placeholder="e.g. from November, flexible, January 2027…" required>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Describe your search or your place</label>
+        <textarea id="description" name="description" rows="5" placeholder="Description of the place, price, values, vibe, etc." required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="pronoms">Your pronouns</label>
+        <input type="text" id="pronoms" name="pronoms" required>
+      </div>
+
+      <div class="form-group">
+        <label for="contact">Contact details</label>
+        <input type="text" id="contact" name="contact" required>
+        <small>This contact will be visible to other people browsing the listing.</small>
+      </div>
+
+      <button type="submit">Submit listing</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>Report an issue: <a href="mailto:mercilacolere@proton.me">mercilacolere@proton.me</a></p>
+  </footer>
+</body>
+</html>
